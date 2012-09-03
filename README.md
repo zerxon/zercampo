@@ -1,4 +1,5 @@
 zercampo
 ========
 
-PHP小型讨论区
+A small php bbs base on mvc
+http://www.zerxon.info
