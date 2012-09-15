@@ -1,2 +1,3 @@
-/anlian.php
-/analysis.php
+.settings/*
+.project
+.buildpath
