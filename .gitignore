@@ -1,3 +1,6 @@
 .settings/*
 .project
 .buildpath
+/lib/mysqldb.class.php
+/templates_c/*
+

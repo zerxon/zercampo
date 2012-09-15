@@ -2,6 +2,7 @@
 require_once 'lib/pageModel.class.php';
 require_once 'lib/pagination.func.php';
 require_once 'lib/collection.class.php';
+require_once 'lib/collector.class.php';
 
 class Share extends PageModel{
 	
@@ -66,13 +67,23 @@ class Share extends PageModel{
 	
 	//Ìí¼Ó×ÊÔ´
 	private function add_share(){
-		$share_title=$this->post('sharetitle','');
+		//$share_title=$this->post('sharetitle','');
 		$share_url=$this->post('shareurl','');
 		$author=$_SESSION['user']['username'];
 		$date=time();
 		
-		if($share_title && $share_url){
-			$sql="insert into share(title,author,url,date) values('".$share_title."','".$author."','".$share_url."','".$date."')";
+		$collector=new Collector($share_url);
+		$html=$collector->getContent();
+		if($html==null){
+			echo "error in share";
+			exit;	
+		}
+		
+		$share_title=$html['title'];
+		$share_content=$html['content'];
+		
+		if($share_title && $share_url && $share_content){
+			$sql="insert into share(title,author,url,content,date) values('".$share_title."','".$author."','".$share_url."','".$share_content."','".$date."')";
 			$this->db->query($sql);
 			
 			turn_page('/share');

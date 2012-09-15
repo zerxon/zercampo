@@ -3,9 +3,9 @@
 class MysqlDB{
 	private $db_type='mysql';
 	private $db_host='localhost';
-	private $db_name='zerxon_zercampo';
-	private $db_username='zerxon_xenon';
-	private $db_userpass='lrp***066';
+	private $db_name='zerxon';
+	private $db_username='root';
+	private $db_userpass='toor';
 	private $conn;
 	
 	public function __construct(){
