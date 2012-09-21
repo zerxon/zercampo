@@ -10,6 +10,7 @@ class Favorites extends PageModel{
 	}
 	
 	private function init(){
+		
 		if($this->isLogin){
 			$username=$_SESSION['user']['username'];
 			$this->get_fav($username);
